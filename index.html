@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineMatch: AI Movie Recommendation and Discovery System</title>
+  <meta name="description" content="Discover movies matching the exact storytelling DNA of your favorites using trained K-Nearest Neighbors and K-Means clustering across 9,742 catalog titles." />
+  
+  <!-- Canonical tag (Custom production domain, not vercel.app) -->
+  <link rel="canonical" href="https://cinematch.app/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cinematch.app/" />
+  <meta property="og:title" content="CineMatch: AI Movie Recommendation and Discovery System" />
+  <meta property="og:description" content="Content-based film discovery powered by pre-trained Nearest Neighbors and K-Means genre clustering. Zero user tracking, deterministic cosine distance." />
+  <meta property="og:image" content="https://cinematch.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="CineMatch movie recommendation engine preview banner" />
+
+  <!-- Twitter Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CineMatch: AI Movie Recommendation and Discovery System" />
+  <meta name="twitter:description" content="Content-based film discovery powered by pre-trained Nearest Neighbors and K-Means genre clustering." />
+  <meta name="twitter:image" content="https://cinematch.app/og-image.png" />
+
+  <!-- Structured Data (Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CineMatch",
+    "url": "https://cinematch.app/",
+    "description": "Content-based movie recommendation system using pre-trained K-Nearest Neighbors and K-Means models over 9,742 MovieLens titles.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "K-Nearest Neighbors Cosine Distance Matching",
+      "10 Unsupervised K-Means Archetype Clusters",
+      "9,742 Catalog Titles Search",
+      "Offline Vector Poster Generation"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="brand" aria-label="CineMatch Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" fill="#141720" stroke="#c9a86a" stroke-width="1.8" />
+            <circle cx="16" cy="16" r="5" fill="#0d0f14" stroke="#c9a86a" stroke-width="1.2" />
+            <circle cx="16" cy="7" r="2.2" fill="#c9a86a" />
+            <circle cx="23.8" cy="11.5" r="2.2" fill="#c9a86a" />
+            <circle cx="23.8" cy="20.5" r="2.2" fill="#c9a86a" />
+            <circle cx="16" cy="25" r="2.2" fill="#c9a86a" />
+            <circle cx="8.2" cy="20.5" r="2.2" fill="#c9a86a" />
+            <circle cx="8.2" cy="11.5" r="2.2" fill="#c9a86a" />
+          </svg>
+        </div>
+        <div>
+          <span class="brand-text">CINE<span>MATCH</span></span>
+          <span class="brand-subtitle">AI Recommender Studio</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="/" class="nav-link active">Discover</a></li>
+          <li><a href="/explore.html" class="nav-link">Catalog Browser</a></li>
+          <li><a href="/insights.html" class="nav-link">Model Insights</a></li>
+          <li><a href="/evaluation.html" class="nav-link">Model Evaluation</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="tmdb-config-btn" class="btn btn-secondary btn-sm" aria-label="Optional Poster API Settings">
+          Poster API
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Movie Search (primary interaction) -->
+    <section aria-labelledby="page-title">
+      <div class="section-header first-section-header">
+        <h1 id="page-title">Search for a Movie</h1>
+        <span class="section-caption">Type a movie title to discover similar films</span>
+      </div>
+
+      <div style="position: relative; max-width: 640px; margin-bottom: 16px;">
+        <input type="text" id="search-input" class="input-text"
+               placeholder="Search for a movie you like..."
+               autocomplete="off"
+               style="font-size: 1rem; padding: 14px 18px;" />
+        <div id="search-results" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: 0 0 6px 6px; z-index: 50; max-height: 320px; overflow-y: auto; box-shadow: var(--shadow-md);"></div>
+      </div>
+
+      <!-- Duplicate Title Disambiguation Container -->
+      <div id="disambiguation-container" style="display: none;"></div>
+
+      <!-- Find Similar Movies button (appears after selection) -->
+      <div id="find-similar-container" style="display: none; margin-bottom: 28px;">
+        <div id="selected-movie-preview" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <div>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">Selected movie:</span>
+            <strong id="selected-movie-name" style="margin-left: 6px; color: var(--text-primary); font-size: 1rem;"></strong>
+            <span id="selected-movie-genres-inline" style="margin-left: 8px; font-size: 0.82rem; color: var(--text-secondary);"></span>
+          </div>
+          <button type="button" id="clear-selection-btn" class="btn btn-secondary btn-sm">Clear</button>
+        </div>
+        <button type="button" id="find-similar-btn" class="btn btn-primary" style="font-size: 1rem; padding: 12px 28px;">
+          Find Similar Movies
+        </button>
+      </div>
+    </section>
+
+    <!-- Genre Filters (optional, separate from search) -->
+    <section aria-labelledby="genre-filter-heading">
+      <div class="section-header">
+        <h2 id="genre-filter-heading">Browse by Genre</h2>
+        <span class="section-caption">Select a genre to explore matching titles</span>
+      </div>
+      <div id="genre-filters-container" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;"></div>
+      <div id="genre-results-info" style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;"></div>
+      <div id="genre-results-grid" class="movie-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- Query Movie Spotlight Section (hidden until recommendations run) -->
+    <section id="spotlight-section" aria-labelledby="spotlight-heading" style="display: none;">
+      <div class="section-header">
+        <h2 id="spotlight-heading">Your Selected Film</h2>
+      </div>
+
+      <div class="spotlight-card">
+        <div class="spotlight-poster">
+          <img id="spotlight-poster-img" src="" alt="Selected movie poster" />
+        </div>
+        <div class="spotlight-meta">
+          <div class="spotlight-badges">
+            <span id="spotlight-cluster" class="badge badge-cluster">Cluster</span>
+            <span id="spotlight-id" class="badge badge-id">MovieLens ID</span>
+          </div>
+          <h3 id="spotlight-title" class="spotlight-title"></h3>
+          <div id="spotlight-genres" style="margin-bottom: 12px;"></div>
+          <p id="spotlight-desc" class="spotlight-desc"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommendations Output Section (hidden until triggered) -->
+    <section id="recommendations-section" aria-labelledby="recommendations-heading" style="display: none;">
+      <div class="section-header">
+        <h2 id="recommendations-heading">Movies You Might Like</h2>
+        <span id="recommendations-count" class="section-caption"></span>
+      </div>
+
+      <div id="recommendations-grid" class="movie-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- Methodological Disclaimer -->
+    <aside class="callout" style="margin-top: 40px;" aria-label="Recommendation methodology note">
+      <strong>Methodological Notice:</strong> CineMatch recommendations are computed purely through genre feature vectors and pre-trained clustering. User viewing history and personal rating profiles are not stored or analyzed.
+    </aside>
+  </main>
+
+  <!-- Poster API Configuration Modal -->
+  <div id="tmdb-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 200; align-items: center; justify-content: center; padding: 20px;" role="dialog" aria-modal="true" aria-labelledby="tmdb-modal-title">
+    <div style="background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 28px; max-width: 520px; width: 100%; box-shadow: var(--shadow-md);">
+      <h3 id="tmdb-modal-title" style="font-family: 'Cinzel', serif; font-size: 1.25rem; margin-bottom: 8px; color: var(--text-primary);">
+        Movie Poster API Settings
+      </h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+        Official studio posters are fetched securely through the backend OMDb proxy. Offline high-fidelity vector posters are used whenever an external poster is unavailable.
+      </p>
+
+      <div id="poster-api-status" style="margin-bottom: 16px; font-size: 0.85rem; padding: 10px 14px; border-radius: var(--radius-md); background: rgba(201, 168, 106, 0.1); border: 1px solid var(--border-subtle); color: var(--text-primary);">
+        Checking OMDb backend service...
+      </div>
+
+      <div class="input-group">
+        <label for="omdb-key-input" class="input-label">OMDb API Key (Loaded from backend .env by default)</label>
+        <input type="text" id="omdb-key-input" class="input-text" placeholder="e.g. 1a2b3c4d" autocomplete="off" />
+      </div>
+
+      <div class="input-group" style="margin-top: 12px;">
+        <label for="tmdb-key-input" class="input-label">TMDB API Key (Optional secondary provider)</label>
+        <input type="password" id="tmdb-key-input" class="input-text" placeholder="Optional 32-character TMDB key" autocomplete="off" />
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 22px; flex-wrap: wrap;">
+        <button type="button" id="clear-poster-cache-btn" class="btn btn-secondary btn-sm" title="Purges cached posters so fresh posters load immediately">
+          Clear Poster Cache
+        </button>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" id="tmdb-close-btn" class="btn btn-secondary">Close</button>
+          <button type="button" id="tmdb-save-btn" class="btn btn-primary">Save Settings</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>CineMatch</strong> &middot; Deterministic Content-Based Film Recommender
+      </div>
+      <nav class="footer-links" aria-label="Footer Navigation">
+        <a href="/">Discover</a>
+        <a href="/explore.html">Catalog</a>
+        <a href="/insights.html">Model Insights</a>
+        <a href="/evaluation.html">Model Evaluation</a>
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/robots.txt">Robots</a>
+        <a href="/llms.txt">LLMs Context</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/scripts/discover.js"></script>
+</body>
+</html>

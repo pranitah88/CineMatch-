@@ -1,0 +1,514 @@
+{
+  "totalMovies": 9742,
+  "totalDimensions": 19,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Children",
+    "Comedy",
+    "Crime",
+    "Documentary",
+    "Drama",
+    "Fantasy",
+    "Film-Noir",
+    "Horror",
+    "IMAX",
+    "Musical",
+    "Mystery",
+    "Romance",
+    "Sci-Fi",
+    "Thriller",
+    "War",
+    "Western"
+  ],
+  "nClusters": 10,
+  "inertia": 8170.512506527106,
+  "metric": "Cosine",
+  "archetypes": {
+    "0": {
+      "name": "Romantic Dramas and Melodramas",
+      "description": "Heartfelt relationship dramas, period romance, and emotional character arcs.",
+      "primary": "Drama, Romance"
+    },
+    "1": {
+      "name": "Crime and Neo-Noir Thrillers",
+      "description": "Gritty crime investigations, heist narratives, and urban noir suspense.",
+      "primary": "Crime, Drama, Thriller"
+    },
+    "2": {
+      "name": "Pure Comedies and Satire",
+      "description": "Situational humor, parody, physical comedy, and lighthearted character journeys.",
+      "primary": "Comedy"
+    },
+    "3": {
+      "name": "Horror and Psychological Suspense",
+      "description": "Supernatural horror, psychological tension, creature features, and dark mysteries.",
+      "primary": "Horror, Thriller"
+    },
+    "4": {
+      "name": "Romantic Comedies",
+      "description": "Witty relationship comedies, courtship stories, and lighthearted romantic pairings.",
+      "primary": "Comedy, Romance"
+    },
+    "5": {
+      "name": "Dramatic Epics and Character Studies",
+      "description": "Historical narratives, war biographies, and focused dramatic character studies.",
+      "primary": "Drama"
+    },
+    "6": {
+      "name": "Sci-Fi, Fantasy and Action Adventures",
+      "description": "Speculative science fiction, space epics, fantasy quests, and high-concept action.",
+      "primary": "Action, Adventure, Sci-Fi"
+    },
+    "7": {
+      "name": "Action and Crime Thrillers",
+      "description": "High-velocity action setpieces, police thrillers, and explosive chases.",
+      "primary": "Action, Crime, Thriller"
+    },
+    "8": {
+      "name": "Documentaries and Specialty Non-Fiction",
+      "description": "Real-world historical accounts, investigative documentaries, and unclassified specialty releases.",
+      "primary": "Documentary"
+    },
+    "9": {
+      "name": "Animation and Family Adventure",
+      "description": "Feature animation, youth adventures, and cross-generational storytelling.",
+      "primary": "Animation, Children, Fantasy"
+    }
+  },
+  "clusterStats": {
+    "0": {
+      "count": 890,
+      "topGenres": {
+        "Drama|Romance": 349,
+        "Comedy|Drama|Romance": 276,
+        "Drama|Romance|War": 24,
+        "Drama|Musical|Romance": 21,
+        "Drama|Fantasy|Romance": 18
+      },
+      "samples": [
+        {
+          "title": "Waiting to Exhale (1995)",
+          "genres": "Comedy|Drama|Romance"
+        },
+        {
+          "title": "American President, The (1995)",
+          "genres": "Comedy|Drama|Romance"
+        },
+        {
+          "title": "Sense and Sensibility (1995)",
+          "genres": "Drama|Romance"
+        },
+        {
+          "title": "Leaving Las Vegas (1995)",
+          "genres": "Drama|Romance"
+        },
+        {
+          "title": "Persuasion (1995)",
+          "genres": "Drama|Romance"
+        },
+        {
+          "title": "How to Make an American Quilt (1995)",
+          "genres": "Drama|Romance"
+        }
+      ]
+    },
+    "1": {
+      "count": 571,
+      "topGenres": {
+        "Crime|Drama": 134,
+        "Crime|Drama|Thriller": 125,
+        "Crime|Thriller": 45,
+        "Comedy|Crime|Drama": 35,
+        "Crime|Drama|Mystery|Thriller": 34
+      },
+      "samples": [
+        {
+          "title": "Casino (1995)",
+          "genres": "Crime|Drama"
+        },
+        {
+          "title": "Get Shorty (1995)",
+          "genres": "Comedy|Crime|Thriller"
+        },
+        {
+          "title": "Copycat (1995)",
+          "genres": "Crime|Drama|Horror|Mystery|Thriller"
+        },
+        {
+          "title": "Shanghai Triad (Yao a yao yao dao waipo qiao) (1995)",
+          "genres": "Crime|Drama"
+        },
+        {
+          "title": "Dead Man Walking (1995)",
+          "genres": "Crime|Drama"
+        },
+        {
+          "title": "Usual Suspects, The (1995)",
+          "genres": "Crime|Mystery|Thriller"
+        }
+      ]
+    },
+    "2": {
+      "count": 2257,
+      "topGenres": {
+        "Comedy": 946,
+        "Comedy|Drama": 435,
+        "Comedy|Crime": 101,
+        "Action|Comedy": 92,
+        "Children|Comedy": 74
+      },
+      "samples": [
+        {
+          "title": "Father of the Bride Part II (1995)",
+          "genres": "Comedy"
+        },
+        {
+          "title": "Dracula: Dead and Loving It (1995)",
+          "genres": "Comedy|Horror"
+        },
+        {
+          "title": "Four Rooms (1995)",
+          "genres": "Comedy"
+        },
+        {
+          "title": "Ace Ventura: When Nature Calls (1995)",
+          "genres": "Comedy"
+        },
+        {
+          "title": "It Takes Two (1995)",
+          "genres": "Children|Comedy"
+        },
+        {
+          "title": "To Die For (1995)",
+          "genres": "Comedy|Drama|Thriller"
+        }
+      ]
+    },
+    "3": {
+      "count": 921,
+      "topGenres": {
+        "Horror": 167,
+        "Horror|Thriller": 135,
+        "Thriller": 84,
+        "Horror|Sci-Fi": 53,
+        "Horror|Mystery|Thriller": 42
+      },
+      "samples": [
+        {
+          "title": "Twelve Monkeys (a.k.a. 12 Monkeys) (1995)",
+          "genres": "Mystery|Sci-Fi|Thriller"
+        },
+        {
+          "title": "Seven (a.k.a. Se7en) (1995)",
+          "genres": "Mystery|Thriller"
+        },
+        {
+          "title": "From Dusk Till Dawn (1996)",
+          "genres": "Action|Comedy|Horror|Thriller"
+        },
+        {
+          "title": "Mary Reilly (1996)",
+          "genres": "Drama|Horror|Thriller"
+        },
+        {
+          "title": "Unforgettable (1996)",
+          "genres": "Mystery|Sci-Fi|Thriller"
+        },
+        {
+          "title": "Jade (1995)",
+          "genres": "Thriller"
+        }
+      ]
+    },
+    "4": {
+      "count": 585,
+      "topGenres": {
+        "Comedy|Romance": 363,
+        "Comedy|Musical|Romance": 30,
+        "Comedy|Fantasy|Romance": 24,
+        "Romance": 21,
+        "Adventure|Comedy|Romance": 13
+      },
+      "samples": [
+        {
+          "title": "Grumpier Old Men (1995)",
+          "genres": "Comedy|Romance"
+        },
+        {
+          "title": "Sabrina (1995)",
+          "genres": "Comedy|Romance"
+        },
+        {
+          "title": "Clueless (1995)",
+          "genres": "Comedy|Romance"
+        },
+        {
+          "title": "Two if by Sea (1996)",
+          "genres": "Comedy|Romance"
+        },
+        {
+          "title": "French Twist (Gazon maudit) (1995)",
+          "genres": "Comedy|Romance"
+        },
+        {
+          "title": "Vampire in Brooklyn (1995)",
+          "genres": "Comedy|Horror|Romance"
+        }
+      ]
+    },
+    "5": {
+      "count": 1957,
+      "topGenres": {
+        "Drama": 1053,
+        "Drama|Thriller": 168,
+        "Drama|War": 114,
+        "Action|Drama": 62,
+        "Drama|Musical": 44
+      },
+      "samples": [
+        {
+          "title": "Nixon (1995)",
+          "genres": "Drama"
+        },
+        {
+          "title": "Powder (1995)",
+          "genres": "Drama|Sci-Fi"
+        },
+        {
+          "title": "Othello (1995)",
+          "genres": "Drama"
+        },
+        {
+          "title": "Now and Then (1995)",
+          "genres": "Children|Drama"
+        },
+        {
+          "title": "Dangerous Minds (1995)",
+          "genres": "Drama"
+        },
+        {
+          "title": "Babe (1995)",
+          "genres": "Children|Drama"
+        }
+      ]
+    },
+    "6": {
+      "count": 706,
+      "topGenres": {
+        "Action|Adventure|Sci-Fi": 66,
+        "Action|Adventure|Fantasy": 41,
+        "Action|Adventure|Thriller": 40,
+        "Action|Sci-Fi": 38,
+        "Action|Adventure": 32
+      },
+      "samples": [
+        {
+          "title": "GoldenEye (1995)",
+          "genres": "Action|Adventure|Thriller"
+        },
+        {
+          "title": "Cutthroat Island (1995)",
+          "genres": "Action|Adventure|Romance"
+        },
+        {
+          "title": "City of Lost Children, The (Cit\u00e9 des enfants perdus, La) (1995)",
+          "genres": "Adventure|Drama|Fantasy|Mystery|Sci-Fi"
+        },
+        {
+          "title": "Mortal Kombat (1995)",
+          "genres": "Action|Adventure|Fantasy"
+        },
+        {
+          "title": "White Squall (1996)",
+          "genres": "Action|Adventure|Drama"
+        },
+        {
+          "title": "Broken Arrow (1996)",
+          "genres": "Action|Adventure|Thriller"
+        }
+      ]
+    },
+    "7": {
+      "count": 725,
+      "topGenres": {
+        "Action|Crime|Thriller": 66,
+        "Action|Crime|Drama|Thriller": 61,
+        "Action": 60,
+        "Action|Thriller": 60,
+        "Action|Crime|Drama": 50
+      },
+      "samples": [
+        {
+          "title": "Heat (1995)",
+          "genres": "Action|Crime|Thriller"
+        },
+        {
+          "title": "Sudden Death (1995)",
+          "genres": "Action"
+        },
+        {
+          "title": "Money Train (1995)",
+          "genres": "Action|Comedy|Crime|Drama|Thriller"
+        },
+        {
+          "title": "Assassins (1995)",
+          "genres": "Action|Crime|Thriller"
+        },
+        {
+          "title": "Dead Presidents (1995)",
+          "genres": "Action|Crime|Drama"
+        },
+        {
+          "title": "Lawnmower Man 2: Beyond Cyberspace (1996)",
+          "genres": "Action|Sci-Fi|Thriller"
+        }
+      ]
+    },
+    "8": {
+      "count": 590,
+      "topGenres": {
+        "Documentary": 339,
+        "Sci-Fi": 37,
+        "(no genres listed)": 34,
+        "Comedy|Documentary": 31,
+        "Animation": 30
+      },
+      "samples": [
+        {
+          "title": "Nico Icon (1995)",
+          "genres": "Documentary"
+        },
+        {
+          "title": "Heidi Fleiss: Hollywood Madam (1995)",
+          "genres": "Documentary"
+        },
+        {
+          "title": "Catwalk (1996)",
+          "genres": "Documentary"
+        },
+        {
+          "title": "Anne Frank Remembered (1995)",
+          "genres": "Documentary"
+        },
+        {
+          "title": "Jupiter's Wife (1994)",
+          "genres": "Documentary"
+        },
+        {
+          "title": "Man of the Year (1995)",
+          "genres": "Documentary"
+        }
+      ]
+    },
+    "9": {
+      "count": 540,
+      "topGenres": {
+        "Animation|Children|Comedy": 37,
+        "Adventure|Animation|Children|Comedy": 31,
+        "Animation|Children": 28,
+        "Adventure|Children|Fantasy": 24,
+        "Adventure|Children": 23
+      },
+      "samples": [
+        {
+          "title": "Toy Story (1995)",
+          "genres": "Adventure|Animation|Children|Comedy|Fantasy"
+        },
+        {
+          "title": "Jumanji (1995)",
+          "genres": "Adventure|Children|Fantasy"
+        },
+        {
+          "title": "Tom and Huck (1995)",
+          "genres": "Adventure|Children"
+        },
+        {
+          "title": "Balto (1995)",
+          "genres": "Adventure|Animation|Children"
+        },
+        {
+          "title": "Indian in the Cupboard, The (1995)",
+          "genres": "Adventure|Children|Fantasy"
+        },
+        {
+          "title": "Muppet Treasure Island (1996)",
+          "genres": "Adventure|Children|Comedy|Musical"
+        }
+      ]
+    }
+  },
+  "duplicates": {
+    "Confessions of a Dangerous Mind (2002)": [
+      {
+        "index": 4169,
+        "movieId": 6003,
+        "genres": "Comedy|Crime|Drama|Thriller",
+        "cluster": 1
+      },
+      {
+        "index": 9106,
+        "movieId": 144606,
+        "genres": "Comedy|Crime|Drama|Romance|Thriller",
+        "cluster": 1
+      }
+    ],
+    "Emma (1996)": [
+      {
+        "index": 650,
+        "movieId": 838,
+        "genres": "Comedy|Drama|Romance",
+        "cluster": 0
+      },
+      {
+        "index": 5601,
+        "movieId": 26958,
+        "genres": "Romance",
+        "cluster": 4
+      }
+    ],
+    "Eros (2004)": [
+      {
+        "index": 5854,
+        "movieId": 32600,
+        "genres": "Drama",
+        "cluster": 5
+      },
+      {
+        "index": 9135,
+        "movieId": 147002,
+        "genres": "Drama|Romance",
+        "cluster": 0
+      }
+    ],
+    "Saturn 3 (1980)": [
+      {
+        "index": 2141,
+        "movieId": 2851,
+        "genres": "Adventure|Sci-Fi|Thriller",
+        "cluster": 6
+      },
+      {
+        "index": 9468,
+        "movieId": 168358,
+        "genres": "Sci-Fi|Thriller",
+        "cluster": 3
+      }
+    ],
+    "War of the Worlds (2005)": [
+      {
+        "index": 5931,
+        "movieId": 34048,
+        "genres": "Action|Adventure|Sci-Fi|Thriller",
+        "cluster": 6
+      },
+      {
+        "index": 6932,
+        "movieId": 64997,
+        "genres": "Action|Sci-Fi",
+        "cluster": 6
+      }
+    ]
+  }
+}

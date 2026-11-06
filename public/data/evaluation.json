@@ -1,0 +1,256 @@
+{
+  "metadata": {
+    "dataset": "MovieLens Latest Small (ml-latest-small)",
+    "totalMovies": 9742,
+    "validGenreMovies": 9708,
+    "zeroGenreMovies": 34,
+    "genreDimensions": 19,
+    "testSampleSize": 1000,
+    "randomSeed": 42,
+    "relevanceThreshold": 0.6,
+    "relevanceDefinition": "Pairwise multi-hot binary genre vector Cosine Similarity >= 0.60",
+    "primaryK": 5,
+    "evaluationTimestamp": "2026-10-30"
+  },
+  "accuracyNote": {
+    "applicable": false,
+    "metric": "Classification Accuracy",
+    "status": "N/A (Not Applicable)",
+    "reason": "Classification accuracy requires discrete ground-truth target classes (y_true) for supervised prediction. In CineMatch, K-Means is unsupervised geometric archetype discovery (no true cluster labels exist), and KNN is an unsupervised distance ranking engine for content retrieval. Applying classification accuracy would be mathematically invalid and methodologically misleading."
+  },
+  "kmeans": {
+    "nClusters": 10,
+    "silhouetteScoreCosine": 0.3732,
+    "silhouetteScoreEuclidean": 0.2902,
+    "daviesBouldinIndex": 1.5221,
+    "inertia": 8170.51,
+    "minClusterSize": 540,
+    "maxClusterSize": 2257,
+    "meanClusterSize": 974.2,
+    "stdClusterSize": 583.6,
+    "clusterDistribution": [
+      {
+        "clusterId": 0,
+        "archetype": "Romantic Dramas and Melodramas",
+        "count": 890,
+        "percentage": 9.14
+      },
+      {
+        "clusterId": 1,
+        "archetype": "Crime and Neo-Noir Thrillers",
+        "count": 571,
+        "percentage": 5.86
+      },
+      {
+        "clusterId": 2,
+        "archetype": "Pure Comedies and Satire",
+        "count": 2257,
+        "percentage": 23.17
+      },
+      {
+        "clusterId": 3,
+        "archetype": "Horror and Psychological Suspense",
+        "count": 921,
+        "percentage": 9.45
+      },
+      {
+        "clusterId": 4,
+        "archetype": "Romantic Comedies",
+        "count": 585,
+        "percentage": 6.0
+      },
+      {
+        "clusterId": 5,
+        "archetype": "Dramatic Epics and Character Studies",
+        "count": 1957,
+        "percentage": 20.09
+      },
+      {
+        "clusterId": 6,
+        "archetype": "Sci-Fi, Fantasy and Action Adventures",
+        "count": 706,
+        "percentage": 7.25
+      },
+      {
+        "clusterId": 7,
+        "archetype": "Action and Crime Thrillers",
+        "count": 725,
+        "percentage": 7.44
+      },
+      {
+        "clusterId": 8,
+        "archetype": "Documentaries and Specialty Non-Fiction",
+        "count": 590,
+        "percentage": 6.06
+      },
+      {
+        "clusterId": 9,
+        "archetype": "Animation and Family Adventure",
+        "count": 540,
+        "percentage": 5.54
+      }
+    ]
+  },
+  "recommendationBenchmarks": {
+    "0.50": {
+      "K_5": {
+        "nEvaluated": 1000,
+        "avgRelevantInCatalog": 2144.8,
+        "medianRelevantInCatalog": 1860,
+        "knn": {
+          "precision": 1.0,
+          "recall": 0.0048,
+          "f1": 0.0093
+        },
+        "kmeans": {
+          "precision": 0.9992,
+          "recall": 0.0047,
+          "f1": 0.0092
+        }
+      },
+      "K_10": {
+        "nEvaluated": 1000,
+        "avgRelevantInCatalog": 2144.8,
+        "medianRelevantInCatalog": 1860,
+        "knn": {
+          "precision": 1.0,
+          "recall": 0.0095,
+          "f1": 0.0183
+        },
+        "kmeans": {
+          "precision": 0.9986,
+          "recall": 0.0094,
+          "f1": 0.018
+        }
+      }
+    },
+    "0.60": {
+      "K_5": {
+        "nEvaluated": 1000,
+        "avgRelevantInCatalog": 1332.0,
+        "medianRelevantInCatalog": 1170,
+        "knn": {
+          "precision": 1.0,
+          "recall": 0.0086,
+          "f1": 0.0166
+        },
+        "kmeans": {
+          "precision": 0.9992,
+          "recall": 0.0084,
+          "f1": 0.0163
+        }
+      },
+      "K_10": {
+        "nEvaluated": 1000,
+        "avgRelevantInCatalog": 1332.0,
+        "medianRelevantInCatalog": 1170,
+        "knn": {
+          "precision": 1.0,
+          "recall": 0.0172,
+          "f1": 0.0322
+        },
+        "kmeans": {
+          "precision": 0.9986,
+          "recall": 0.0166,
+          "f1": 0.0314
+        }
+      }
+    },
+    "0.70": {
+      "K_5": {
+        "nEvaluated": 1000,
+        "avgRelevantInCatalog": 1198.9,
+        "medianRelevantInCatalog": 1062,
+        "knn": {
+          "precision": 1.0,
+          "recall": 0.0158,
+          "f1": 0.0282
+        },
+        "kmeans": {
+          "precision": 0.9986,
+          "recall": 0.0153,
+          "f1": 0.0276
+        }
+      },
+      "K_10": {
+        "nEvaluated": 1000,
+        "avgRelevantInCatalog": 1198.9,
+        "medianRelevantInCatalog": 1062,
+        "knn": {
+          "precision": 0.9996,
+          "recall": 0.0308,
+          "f1": 0.0521
+        },
+        "kmeans": {
+          "precision": 0.9967,
+          "recall": 0.0288,
+          "f1": 0.0498
+        }
+      }
+    }
+  },
+  "primaryBenchmark": {
+    "nEvaluated": 1000,
+    "avgRelevantInCatalog": 1332.0,
+    "medianRelevantInCatalog": 1170,
+    "knn": {
+      "precision": 1.0,
+      "recall": 0.0086,
+      "f1": 0.0166
+    },
+    "kmeans": {
+      "precision": 0.9992,
+      "recall": 0.0084,
+      "f1": 0.0163
+    }
+  },
+  "comparisonTable": [
+    {
+      "metric": "Precision@5",
+      "knn": 1.0,
+      "kmeans": 0.9992,
+      "difference": 0.0008,
+      "winner": "KNN",
+      "description": "Fraction of top-5 recommendations meeting genre relevance proxy (>= 0.60 cosine similarity)"
+    },
+    {
+      "metric": "Recall@5",
+      "knn": 0.0086,
+      "kmeans": 0.0084,
+      "difference": 0.0002,
+      "winner": "KNN",
+      "description": "Proportion of all relevant catalog films retrieved in top-5 (catalog average: 1332.0 relevant titles per query)"
+    },
+    {
+      "metric": "F1@5",
+      "knn": 0.0166,
+      "kmeans": 0.0163,
+      "difference": 0.0003,
+      "winner": "KNN",
+      "description": "Harmonic balance between recommendation precision and catalog recall"
+    },
+    {
+      "metric": "Search Space (Candidate Pool)",
+      "knn": "9,741 items (Full Catalog)",
+      "kmeans": "974 items (Cluster Subset)",
+      "difference": "~8,768 fewer candidates",
+      "winner": "K-Means (Efficiency)",
+      "description": "Number of candidate movies evaluated per query before ranking"
+    },
+    {
+      "metric": "Cross-Archetype Discovery",
+      "knn": "Unconstrained (Global)",
+      "kmeans": "Constrained to Single Cluster",
+      "difference": "KNN spans all 10 clusters",
+      "winner": "KNN (Breadth)",
+      "description": "Ability to surface hybrid-genre films residing in neighboring thematic clusters"
+    }
+  ],
+  "methodologyNotes": [
+    "Relevance Proxy: Without explicit human click/watch user histories, relevance is defined via a strict cosine genre similarity threshold (tau = 0.60). This quantifies algorithm alignment with genre overlap, not subjective viewer enjoyment.",
+    "Catalog Size & Recall Boundedness: Because relevant catalog titles average 1,332 films per query, Recall@5 is mathematically bounded by 5 / 1332 = 0.38% on average. This is standard information retrieval behavior for top-K ranking in large catalogs.",
+    "Identical Evaluation Sets: Both KNN and K-Means strategies were evaluated on the exact same 1,000 query movies, using identical relevance thresholds and identical feature vectors.",
+    "Self-Match Exclusion: The query movie is strictly excluded from its own candidate pool and relevance calculation.",
+    "Cold-Start / Zero Genres: 34 films lacking listed genres (norm = 0) are gracefully quarantined from the test sample to prevent division-by-zero anomalies."
+  ]
+}

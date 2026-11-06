@@ -1,0 +1,26 @@
+# CineMatch Movie Recommendation System
+
+> Content-based cinema recommendation engine powered by K-Nearest Neighbors and K-Means clustering.
+
+## Project Summary
+CineMatch is a movie discovery platform utilizing unsupervised machine learning models pre-trained on the MovieLens 9,742 title catalog. Recommendations are deterministic, privacy-friendly, and computed strictly across 19 binary genre dimensions.
+
+## Machine Learning Architecture
+- Dataset: MovieLens (9,742 films, release years 1902 to 2018).
+- Feature Representation: 19-dimensional binary multi-hot vectors generated via MultiLabelBinarizer.
+- Genre Classes: Action, Adventure, Animation, Children, Comedy, Crime, Documentary, Drama, Fantasy, Film-Noir, Horror, IMAX, Musical, Mystery, Romance, Sci-Fi, Thriller, War, Western.
+- Similarity Metric: Cosine similarity: sim(u, v) = (u . v) / (||u|| * ||v||).
+- Clustering Model: K-Means with k = 10 clusters identifying broad cinematic archetypes.
+- Retraining Policy: Zero runtime retraining. Artifacts are pre-computed and evaluated offline.
+
+## Core Pages
+- /: Primary recommendation engine with search, quick picks, cluster filtering, and similarity scores.
+- /explore.html: Full catalog browser with multi-genre filters (AND/OR modes) and cluster selectors.
+- /insights.html: Mathematical breakdown of vector geometry, cluster distributions, and archetype definitions.
+- /evaluation.html: Empirical model evaluation dashboard with Precision@K, Recall@K, F1@K, Silhouette Score, and Davies-Bouldin metrics.
+- /404.html: Custom error page for unresolved routes.
+
+## Deployment & Production
+- Production Domain: https://cinematch.app
+- Source Maps: Disabled in production bundles.
+- Bundle Optimization: Multi-page Vite compilation with ES2020 target and tree-shaking.
